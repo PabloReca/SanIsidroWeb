@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="global.css">
+
+    <style>
+        body {
+            background-color: purple;
+        }
+
+        .title-container {
+            background-color: white;
+            width: 100%;
+            text-align: center;
+        }
+
+
+        #marquee-text {
+            white-space: nowrap;
+            font-size: 1.8em;
+            display: flex;
+            flex-direction: row;
+            gap: 2rem;
+            color: white;
+        }
+    </style>
+
+</head>
+<body>
+<header class="title-container">
+    <h1>San Isidro</h1>
+    <h3>Estación de esquí</h3>
+</header>
+<main>
+
+
+</main>
+<nav id="mobile-menu"></nav>
+
+<!--marquesina-->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const marqueeText = document.getElementById('marquee-text');
+        let posX = window.innerWidth;
+
+        function updateMarquee() {
+            posX -= 2; // Ajusta la velocidad aquí
+
+            // Cambio aquí: verificar si el texto ha salido completamente de la pantalla por la izquierda
+            if (posX + marqueeText.offsetWidth < 0) {
+                posX = window.innerWidth;
+            }
+
+            marqueeText.style.transform = `translateX(${posX}px)`;
+            requestAnimationFrame(updateMarquee);
+        }
+
+        // Iniciar la marquesina cuando el DOM esté listo
+        updateMarquee();
+
+        // Opcional: actualizar posX cuando la ventana cambie de tamaño
+        window.addEventListener('resize', function () {
+            posX = window.innerWidth;
+        });
+    });
+
+</script>
+
+<!--mobile-menu-->
+<script>
+    document.addEventListener('DOMContentLoaded', async () => {
+        const menuContainer = document.getElementById('mobile-menu');
+        const svgFiles = ['home.svg', 'map.svg', 'weather.svg', 'webcam.svg'];
+
+        for (const file of svgFiles) {
+            try {
+                const baseName = file.split('.')[0]; // Obtiene el nombre base del archivo SVG
+                const svgContent = await fetch(`/assets/icons/menu/${file}`).then(res => res.text());
+                menuContainer.innerHTML += `<button><span id="${baseName}-icon">${svgContent}</span></button>`;
+            } catch (error) {
+                console.error('Error loading SVG:', error);
+            }
+        }
+    });
+
+</script>
+
+</body>
+</html>
