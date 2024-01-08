@@ -3,29 +3,20 @@
     top: 0;
     overflow: hidden;
     margin-top: 8%;
-    background-color: black;
     width: 100%;
 }
 
 #marquee-text {
     white-space: nowrap;
-    font-size: 1.8em;
+    font-size: 1.3em;
     display: flex;
     flex-direction: row;
     gap: 3rem;
     color: white;
 }
 
-header{
-   margin-top: 28vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    width: 100%;
-    background-color: rgba(132, 132, 132, 0.68);
-    color: white;
+.title{
+   margin-top: 38vh;
 }
 
 
