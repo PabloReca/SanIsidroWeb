@@ -55,5 +55,5 @@ function createHTMLSectors(sectors) {
 }
 
 export function initializeSlopes() {
-    document.querySelector('#weather-group').innerHTML = createHTMLSectors(sectors);
+    document.querySelector('#slope-group').innerHTML = createHTMLSectors(sectors);
 }
