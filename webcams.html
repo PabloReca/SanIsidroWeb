@@ -13,16 +13,16 @@
     <h1>Parte de nieve</h1>
 </header>
 <main>
-    <div id="weather-group"></div>
+    <div id="webcam-group"></div>
 </main>
 <nav id="mobile-menu"></nav>
 
 <script type="module">
-    import {initializeSlopes} from './components/Slopes.js';
+    import {initializeWebcams} from './components/Webcams.js';
     import {createNavbar} from './components/MobileNavbar.js';
 
     document.addEventListener('DOMContentLoaded', () => {
-        initializeSlopes();
+        initializeWebcams();
         createNavbar();
     });
 </script>

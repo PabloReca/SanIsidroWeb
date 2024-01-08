@@ -10,7 +10,7 @@
 </head>
 <body>
 <header class="title-container">
-    <h1>Parte de nieve</h1>
+    <h1>Tiempo</h1>
 </header>
 <main>
     <div id="weather-group"></div>
@@ -18,14 +18,20 @@
 <nav id="mobile-menu"></nav>
 
 <script type="module">
-    import {initializeSlopes} from './components/Slopes.js';
+    import { weatherData, createWeatherHTML, showElevation, setupButtonListeners } from './components/Weather.js';
     import {createNavbar} from './components/MobileNavbar.js';
 
     document.addEventListener('DOMContentLoaded', () => {
-        initializeSlopes();
+        const weatherGroup = document.getElementById('weather-group');
+        weatherGroup.innerHTML = createWeatherHTML(weatherData);
+        setupButtonListeners();
+        showElevation(1600);
         createNavbar();
     });
+
 </script>
+
+
 
 </body>
 </html>
