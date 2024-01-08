@@ -1,9 +1,11 @@
 body{
+    /*background image*/
+    background-image: url("/assets/fondos/fondo1-sin-bandera-cielo-aumentado.jpg");
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-
+    font-family: 'Inter', sans-serif;
 }
 
 body,main,header,h1,h2,h3,h4,h5,h6,p,ul,li,button{
@@ -19,24 +21,34 @@ main {
 
 }
 
-button {
+button{
     background-color: transparent;
     border: none;
 }
 
 
-#mobile-menu {
+
+
+
+/*
+Mobile navbar
+*/
+
+#mobile-nav ul {
     display: flex;
     flex-direction: row;
     gap: 1rem;
     position: fixed;
     bottom: 0;
     justify-content: space-around;
-    background-color: blue;
+    align-items: center;
+    background-color: white;
     width: 100%;
+    padding-top: 0.4rem;
+    list-style-type: none;
 }
 
 #home-icon, #map-icon, #weather-icon, #webcam-icon {
     width: 5em;
-    fill: red;
+    fill: black;
 }
